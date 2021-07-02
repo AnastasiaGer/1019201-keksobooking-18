@@ -98,6 +98,12 @@ fieldset {
           transform: translateX(-50%);
 }
 
+.promo__title{
+  text-align: center;
+  margin: 0;
+}
+
+
 .map {
   position: relative;
   display: -webkit-box;
