@@ -48,6 +48,7 @@ const PINS_QUANTITY = 8;
 let maxX;
 
 const elMap = document.querySelector('.map');
+const elForm = document.querySelector('.ad-form');
 
 const generateRandomNumber = function (max, min) {
   return Math.floor(Math.random() * (max - min) + min);
@@ -192,14 +193,25 @@ const createOffers = function () {
 
 const initMap = function () {
   elMap.classList.remove('map--faded');
+  elForm.classList.remove('ad-form--disabled');
   maxX = elMap.offsetWidth;
 };
 
-if (elMap) {
-  initMap();
-  createMapPins();
-  createOffers();
-}
+const mainPin = document.querySelector('.map__pin--main');
+
+mainPin.addEventListener('mousedown', initMap);
+mainPin.addEventListener('keydown', (evt) => {
+  if (evt.keyCode === 13) {
+    elMap.classList.remove('map--faded');
+    elForm.classList.remove('ad-form--disabled');
+  }
+});
+
+// if (elMap) {
+//   createMapPins();
+//   createOffers();
+// }
+
 
 // var pins = document.querySelectorAll('.map__pin');
 // var offerTemplate = document.querySelector('#card')
