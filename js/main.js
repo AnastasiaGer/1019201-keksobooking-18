@@ -6,6 +6,9 @@ const Price = {
   MIN_PRICE: 400,
 };
 
+const ESC_KEYCODE = 27;
+const ENTER_KEYCODE = 13;
+
 const TITLES = [
   'Огромный дворец',
   'Маленькая уютная квартира',
@@ -174,15 +177,10 @@ const createOfferElement = function (offerTemplate, offerData) {
 
   return elOffer;
 };
-
+const elMapPinsArea = elMap.querySelector('.map__pins');
+const offerTemplate = document.querySelector('#card').content.querySelector('article');
 const createOffers = function () {
   const arrMockData = createMockData();
-
-  const elMapPinsArea = elMap.querySelector('.map__pins');
-  const offerTemplate = document.querySelector('#card')
-    .content
-    .querySelector('.map__card');
-  // offerTemplate.classList.add('hidden');
 
   if (elMapPinsArea && offerTemplate) {
     for (let i = 0; i < arrMockData.length; i++) {
@@ -195,29 +193,57 @@ const initMap = function () {
   elMap.classList.remove('map--faded');
   elForm.classList.remove('ad-form--disabled');
   maxX = elMap.offsetWidth;
+
+  createMapPins();
+  createOffers();
 };
 
 const mainPin = document.querySelector('.map__pin--main');
 
 mainPin.addEventListener('mousedown', initMap);
 mainPin.addEventListener('keydown', (evt) => {
-  if (evt.keyCode === 13) {
+  if (evt.keyCode === ENTER_KEYCODE) {
     elMap.classList.remove('map--faded');
     elForm.classList.remove('ad-form--disabled');
   }
 });
 
-// if (elMap) {
-//   createMapPins();
-//   createOffers();
-// }
 
+const pins = document.querySelectorAll('.map__pin');
+const closeBtn = offerTemplate.querySelector('.popup__close');
 
-// var pins = document.querySelectorAll('.map__pin');
-// var offerTemplate = document.querySelector('#card')
+const onPopupEscPress = function(evt) {
+  if (evt.keyCode === ESC_KEYCODE) {
+    offerTemplate.classList.add('hidden');
+  }
+};
 
-// var pinHandler = () => {
-//   offerTemplate.classList.remove('hidden')
-// }
+const openPopup = function() {
+  offerTemplate.classList.remove('hidden');
+  document.addEventListener('keydown', onPopupEscPress);
+};
 
-// pins.forEach(pin => pin.addEventListener('click', pinHandler))
+const closePopup = function() {
+  offerTemplate.classList.add('hidden');
+  document.removeEventListener('keydown', onPopupEscPress);
+};
+
+pins.forEach((pin) => pin.addEventListener('click', () => {
+  openPopup();
+}),
+);
+
+pins.forEach((pin) => pin.addEventListener('click', (evt) => {
+  if (evt.keyCode === ENTER_KEYCODE) {
+    openPopup();
+  }
+}),
+);
+
+closeBtn.addEventListener('click', closePopup);
+
+closeBtn.addEventListener('keydown', (evt) => {
+  if (evt.keyCode === ENTER_KEYCODE) {
+    closePopup();
+  }
+});
