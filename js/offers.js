@@ -5,6 +5,7 @@ import {addElementToDom} from './utils.js';
 const elMap = document.querySelector('.map');
 const elMapPinsArea = elMap.querySelector('.map__pins');
 const elOfferTemplate = document.querySelector('#card').content.querySelector('article');
+
 const createOfferElement = function (offerTemplate, offerData) {
   const elOffer = offerTemplate.cloneNode(true);
 

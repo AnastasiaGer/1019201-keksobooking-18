@@ -4,7 +4,7 @@ import {createMapPins} from './pins.js';
 const ESC_KEYCODE = 27;
 const ENTER_KEYCODE = 13;
 //let maxX;
-
+const fieldsets = document.querySelectorAll('.ad-form__element');
 const elMap = document.querySelector('.map');
 const elForm = document.querySelector('.ad-form');
 const mainPin = document.querySelector('.map__pin--main');
@@ -17,6 +17,11 @@ const closeBtn = offerTemplate.querySelector('.popup__close');
 const initMap = function () {
   elMap.classList.remove('map--faded');
   elForm.classList.remove('ad-form--disabled');
+  for (let i = 0; i < fieldsets.length; i++) {
+    fieldsets[i].disabled = false;
+  }
+
+  //fieldsets.removeAttribute('disabled');
   //maxX = elMap.offsetWidth;
 
   createMapPins();
