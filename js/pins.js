@@ -31,7 +31,9 @@ const createMapPins = function () {
       addElementToDom(elMapPinsArea, createPinElement(elPinTemplate, arrMockData[i]));
     }
   }
+  return arrMockData;
 };
+
 
 export { createMapPins };
 export { createPinElement };

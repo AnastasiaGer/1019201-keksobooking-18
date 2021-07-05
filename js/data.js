@@ -1,7 +1,7 @@
 import {generateRandomNumber} from './utils.js';
 import {getArrayRandomLength} from './utils.js';
-
-let maxX;
+const elMap = document.querySelector('.map');
+const maxX = elMap.offsetWidth;
 const AVATARS_NUMBER = ['01', '02', '03', '04', '05', '06', '07', '08'];
 const MAX_LOCATION_INT = 1200;
 const Price = {
