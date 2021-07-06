@@ -16,6 +16,16 @@ const addElementToDom = function (parentElement, childElement) {
   parentElement.appendChild(childElement);
 };
 
+const hideElement = function (element) {
+  element.classList.add('hidden');
+};
+
+const showElement = function (element) {
+  element.classList.remove('hidden');
+};
+
 export { generateRandomNumber };
 export { getArrayRandomLength };
 export { addElementToDom };
+export { hideElement };
+export { showElement };

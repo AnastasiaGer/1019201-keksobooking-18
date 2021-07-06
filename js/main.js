@@ -17,6 +17,7 @@ const initMap = function () {
 
   createMapPins();
   createOffers();
+
 };
 
 mainPin.addEventListener('mousedown', initMap);
@@ -26,3 +27,5 @@ mainPin.addEventListener('keydown', (evt) => {
     elForm.classList.remove('ad-form--disabled');
   }
 });
+
+

@@ -61,19 +61,6 @@ const getApartmentsFeatures = function () {
   return result;
 };
 
-// var getApartmentImages = function () {
-//   var result = [];
-
-//   var imagesQuantity = generateRandomNumber(MAX_PHOTOS, 1);
-
-//   for (var i = 1; i <= imagesQuantity; i++) {
-//     result.push('http://o0.github.io/assets/images/tokyo/hotel' + i + '.jpg');
-//   }
-
-//   return result;
-// };
-
-
 const createMockData = function () {
   const arrResult = [];
 
@@ -105,7 +92,7 @@ const createMockData = function () {
   }
 
   return arrResult;
-};
 
+};
 
 export { createMockData };
