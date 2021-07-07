@@ -71,6 +71,7 @@ const createMockData = function () {
       },
 
       'offer': {
+        'id': `1${AVATARS_NUMBER[i]}`,
         'title': TITLES[generateRandomNumber(TITLES.length, 0)],
         'address': `${generateRandomNumber(MAX_LOCATION_INT, 0)  }, ${  generateRandomNumber(MAX_LOCATION_INT, 0)}`,
         'price': generateRandomNumber(Price.MAX_PRICE, Price.MIN_PRICE),

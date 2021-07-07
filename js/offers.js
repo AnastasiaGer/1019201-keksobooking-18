@@ -16,6 +16,9 @@ const ENTER_KEYCODE = 13;
 
 const createOfferElement = function (arrResult) {
   const elOffer = elOfferTemplate.cloneNode(true);
+
+  elOffer.setAttribute('aria-labelledby', arrResult.offer.id);
+  elOffer.querySelector('.popup__title').textContent = arrResult.offer.title;
   elOffer.querySelector('.popup__title').textContent = arrResult.offer.title;
   elOffer.querySelector('.popup__text--address').textContent = arrResult.offer.address;
   elOffer.querySelector('.popup__text--price').textContent = arrResult.offer.price;
@@ -60,4 +63,5 @@ export { createOffers };
 
 window.offers = {
   createOfferElement: createOfferElement,
+  createOffers: createOffers,
 };
