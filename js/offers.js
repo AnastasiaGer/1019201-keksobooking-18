@@ -1,5 +1,3 @@
-import {hideElement} from './utils.js';
-
 import {createMockData} from './data.js';
 import {addElementToDom} from './utils.js';
 
@@ -38,13 +36,13 @@ const createOfferElement = function (arrResult) {
   const elOfferBtn = elOffer.querySelector('button');
 
   elOfferBtn.addEventListener('click', () => {
-    hideElement(elOffer);
+    elOffer.hidden = true;
     //document.removeEventListener('keydown', onPopupEscPress);
   });
 
   document.addEventListener('keydown', (evt) => {
     if (evt.keyCode === ENTER_KEYCODE) {
-      hideElement(elOffer);
+      elOffer.hidden = true;
       // document.removeEventListener('keydown', onPopupEscPress);
     }
   });
