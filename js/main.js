@@ -49,6 +49,31 @@ const initMap = function () {
 
   pins.forEach((pin) => pin.addEventListener('click', handlePinClick));
 
+
+  document.addEventListener('input', (event) => {
+
+    // Only run for #wizard select
+    //if (event.target.id !== 'wizard') return;
+
+    if (event.target.value === 'palace') {
+      console.log('palace');
+    }
+
+    if (event.target.value === 'bungalo') {
+      console.log('bungalo');
+    }
+
+    if (event.target.value === 'flat') {
+      console.log('flat');
+    }
+
+    if (event.target.value === 'house') {
+      console.log('house');
+    }
+
+  }, false);
+
+
 };
 
 mainPin.addEventListener('mousedown', initMap);
