@@ -51,11 +51,20 @@ const initMap = function () {
 
 
   document.addEventListener('input', (event) => {
+    const pinss = Array.from(document.querySelectorAll('.map__pin'));
+    pins.forEach((pin) => {
+      pin.hidden = false;
+    });
 
     const typesPins= mainPins.querySelectorAll(`[aria-type="${event.target.value}"]`);
-    console.log(typesPins);
 
     if (event.target.value === 'palace') {
+      pinss.forEach((pin) => {
+        if(pin.dataset.type !== event.target.value) {
+          typesPins.hidden = false;
+          pin.hidden = true;
+        }
+      });
       console.log('palace');
     }
 

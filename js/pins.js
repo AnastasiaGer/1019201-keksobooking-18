@@ -15,11 +15,11 @@ const createPinElement = function (pinData) {
   elPin.style.left = `${pinData.location.x - PIN_WIDTH / 2  }px`;
   elPin.style.top = `${pinData.location.y + PIN_HEIGHT  }px`;
   elPin.id = pinData.offer.id;
-  elPin.setAttribute('aria-type', pinData.offer.type);
-  elPin.setAttribute('aria-price', pinData.offer.price);
-  elPin.setAttribute('aria-rooms', pinData.offer.rooms);
-  elPin.setAttribute('aria-guests', pinData.offer.guests);
-  elPin.setAttribute('aria-features', pinData.offer.features);
+  elPin.setAttribute('data-type', pinData.offer.type);
+  elPin.setAttribute('data-price', pinData.offer.price);
+  elPin.setAttribute('data-rooms', pinData.offer.rooms);
+  elPin.setAttribute('data-guests', pinData.offer.guests);
+  elPin.setAttribute('data-features', pinData.offer.features);
   const elMapPinImage = elPin.querySelector('img');
   if (elMapPinImage) {
     elMapPinImage.src = pinData.author.avatar;
