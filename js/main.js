@@ -65,19 +65,33 @@ const initMap = function () {
           pin.hidden = true;
         }
       });
-      console.log('palace');
     }
 
     if (event.target.value === 'bungalo') {
-      console.log('bungalo');
+      pinss.forEach((pin) => {
+        if(pin.dataset.type !== event.target.value) {
+          typesPins.hidden = false;
+          pin.hidden = true;
+        }
+      });
     }
 
     if (event.target.value === 'flat') {
-      console.log('flat');
+      pinss.forEach((pin) => {
+        if(pin.dataset.type !== event.target.value) {
+          typesPins.hidden = false;
+          pin.hidden = true;
+        }
+      });
     }
 
     if (event.target.value === 'house') {
-      console.log('house');
+      pinss.forEach((pin) => {
+        if(pin.dataset.type !== event.target.value) {
+          typesPins.hidden = false;
+          pin.hidden = true;
+        }
+      });
     }
 
   }, false);
