@@ -51,17 +51,9 @@ const initMap = function () {
 
 
   document.addEventListener('input', (event) => {
-    const pinss = Array.from(document.querySelectorAll('.map__pin'));
 
-    const { type } = event.target.value;
-
-      TODO
-    const typesPins= pinss.forEach((pin) => {
-      pin.querySelectorAll(`[aria-type="${type}"]`);
-    });
+    const typesPins= mainPins.querySelectorAll(`[aria-type="${event.target.value}"]`);
     console.log(typesPins);
-    // Only run for #wizard select
-    //if (event.target.id !== 'wizard') return;
 
     if (event.target.value === 'palace') {
       console.log('palace');
