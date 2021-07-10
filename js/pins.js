@@ -36,12 +36,12 @@ const housingType = mapFilters.querySelector('#housing-type');
 // const housingGuests = mapFilters.querySelector('#housing-guests');
 // const housingFeatures = mapFilters.querySelector('#housing-features');
 
-var removePins = function () {
-  const mapPins = document.querySelector('.map__pins');
-  mapPins.forEach(function (item) {
-    elMap.removeChild(item);
-  });
-};
+// const removePins = function () {
+//   const mapPins = document.querySelector('.map__pins');
+//   mapPins.forEach((item) => {
+//     elMap.removeChild(item);
+//   });
+// };
 
 const createMapPins = function () {
   const arrMockData = createMockData();
@@ -50,17 +50,37 @@ const createMapPins = function () {
     for (let i = 0; i < arrMockData.length; i++) {
       addElementToDom(elMapPinsArea, createPinElement(arrMockData[i]));
 
-      housingType.addEventListener('selectionchange', window.debounce((evt) => {
-        if (evt.offer.type === 'bungalo') {
-          const bungaloPins = sortRandom(photos);
-          window.gallery.renderPhotosArr(randomPhotos);
-        // } else if (evt.target.id === 'filter-popular') {
-        //   window.gallery.renderPhotosArr(photos);
-        // } else if (evt.target.id === 'filter-discussed') {
-        //   const discussedPhotos = sortDiscussed();
-        //   window.gallery.renderPhotosArr(discussedPhotos);
+      housingType.addEventListener('change', (event) => {
+        const mainPins = document.querySelector('.map__pins');
+        const pins = Array.from(document.querySelectorAll('.map__pin'));
+        pins.forEach((pin) => {
+          pin.hidden = false;
+        });
+
+        const { type } = housingType.value;
+        console.log(type);
+        const pinsByType = mainPins.querySelector(`[aria-type="${type}"]`);
+        pinsByType.hidden = true;
+        // if(housingType.value == 'bungalo')
+        // {
+        //   console.log(housingType.value);
+        // } else if(housingType.value == 'palace') {
+        //   console.log(housingType.value);
+        // } else if(housingType.value == 'flat') {
+        //   console.log(housingType.value);
+        // } else if(housingType.value == 'house') {
+        //   console.log(housingType.value);
         // }
-      }));
+      });
+
+
+      //else if (evt.target.id === 'filter-popular') {
+      //   window.gallery.renderPhotosArr(photos);
+      // } else if (evt.target.id === 'filter-discussed') {
+      //   const discussedPhotos = sortDiscussed();
+      //   window.gallery.renderPhotosArr(discussedPhotos);
+      // }
+
     }
   }
 };
